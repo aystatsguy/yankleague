@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FolderRoot as Football, RefreshCw, Plus, BarChart3 } from 'lucide-react';
+import { FolderRoot as Football, RefreshCw, Plus, BarChart3, Zap } from 'lucide-react';
 import { useFantasyData } from './hooks/useFantasyData';
 import { LeagueStandings } from './components/LeagueStandings';
 import { TeamCard } from './components/TeamCard';
@@ -11,6 +11,7 @@ function App() {
     availablePlayers,
     loading,
     error,
+    runAutodraft,
     addTeam,
     addPlayerToTeam,
     removePlayerFromTeam,
@@ -42,6 +43,16 @@ function App() {
               </div>
             </div>
             <div className="flex items-center gap-3">
+              {league.teams.length === 0 && (
+                <button
+                  onClick={runAutodraft}
+                  disabled={loading}
+                  className="flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-md text-sm font-medium transition-colors disabled:bg-gray-300"
+                >
+                  <Zap className={`w-4 h-4 ${loading ? 'animate-pulse' : ''}`} />
+                  {loading ? 'Drafting...' : 'Autodraft 8 Teams'}
+                </button>
+              )}
               <button
                 onClick={refreshPlayerStats}
                 disabled={loading}
@@ -113,14 +124,24 @@ function App() {
               <div className="text-center py-12">
                 <Football className="w-16 h-16 text-gray-300 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">No Teams Yet</h3>
-                <p className="text-gray-600 mb-6">Get started by adding your first team to the league.</p>
-                <button
-                  onClick={() => setShowAddTeam(true)}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-md font-medium transition-colors"
-                >
-                  <Plus className="w-5 h-5" />
-                  Add First Team
-                </button>
+                <p className="text-gray-600 mb-6">Get started by running an autodraft or adding teams manually.</p>
+                <div className="flex gap-4 justify-center">
+                  <button
+                    onClick={runAutodraft}
+                    disabled={loading}
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-md font-medium transition-colors disabled:bg-gray-300"
+                  >
+                    <Zap className={`w-5 h-5 ${loading ? 'animate-pulse' : ''}`} />
+                    {loading ? 'Drafting...' : 'Autodraft 8 Teams'}
+                  </button>
+                  <button
+                    onClick={() => setShowAddTeam(true)}
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-md font-medium transition-colors"
+                  >
+                    <Plus className="w-5 h-5" />
+                    Add Team Manually
+                  </button>
+                </div>
               </div>
             ) : (
               <div className="grid gap-6 lg:grid-cols-2">

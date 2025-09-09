@@ -1,12 +1,46 @@
 import { useState, useEffect } from 'react';
 import { League, FantasyTeam, Player, RosterRequirements } from '../types/fantasy';
-import { createMockLeague, mockPlayers } from '../data/mockData';
+import { createMockLeague } from '../data/mockData';
+import { generateAutodraftTeams, updateAvailablePlayersAfterDraft } from '../data/autodraft';
+import { nflPlayerDatabase } from '../data/nflPlayers';
 
 export const useFantasyData = () => {
-  const [league, setLeague] = useState<League>(createMockLeague());
-  const [availablePlayers, setAvailablePlayers] = useState<Player[]>(mockPlayers);
+  const [league, setLeague] = useState<League>(() => {
+    const baseLeague = createMockLeague();
+    return {
+      ...baseLeague,
+      teams: [], // Start with empty teams for autodraft
+    };
+  });
+  const [availablePlayers, setAvailablePlayers] = useState<Player[]>(nflPlayerDatabase);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const runAutodraft = () => {
+    setLoading(true);
+    setError(null);
+    
+    try {
+      // Generate 8 teams with full rosters
+      const draftedTeams = generateAutodraftTeams();
+      
+      // Update league with drafted teams
+      setLeague(prev => ({
+        ...prev,
+        teams: draftedTeams,
+      }));
+      
+      // Update available players
+      const updatedPlayers = updateAvailablePlayersAfterDraft(draftedTeams);
+      setAvailablePlayers(updatedPlayers);
+      
+    } catch (err) {
+      setError('Failed to run autodraft');
+      console.error('Autodraft error:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const addTeam = (teamName: string, ownerName: string) => {
     if (league.teams.length >= league.maxTeams) {
@@ -106,7 +140,7 @@ export const useFantasyData = () => {
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       // In a real app, this would fetch from NFL API
-      const updatedPlayers = mockPlayers.map(player => ({
+      const updatedPlayers = nflPlayerDatabase.map(player => ({
         ...player,
         points: player.points + (Math.random() - 0.5) * 4,
       }));
@@ -124,6 +158,7 @@ export const useFantasyData = () => {
     availablePlayers: availablePlayers.filter(p => p.isAvailable),
     loading,
     error,
+    runAutodraft,
     addTeam,
     addPlayerToTeam,
     removePlayerFromTeam,
