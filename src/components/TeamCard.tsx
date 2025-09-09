@@ -150,21 +150,6 @@ export const TeamCard: React.FC<TeamCardProps> = ({
           </div>
         </div>
       </div>
-            <div className={`text-center p-2 rounded ${positionCounts.TE <= 4 ? 'bg-gray-100 text-gray-600' : 'bg-red-100 text-red-800'}`}>
-              <div className="font-medium">TE</div>
-              <div>{positionCounts.TE}/4</div>
-            </div>
-            <div className={`text-center p-2 rounded ${positionCounts.K <= 2 ? 'bg-gray-100 text-gray-600' : 'bg-red-100 text-red-800'}`}>
-              <div className="font-medium">K</div>
-              <div>{positionCounts.K}/2</div>
-            </div>
-            <div className={`text-center p-2 rounded ${positionCounts.DEF <= 2 ? 'bg-gray-100 text-gray-600' : 'bg-red-100 text-red-800'}`}>
-              <div className="font-medium">DEF</div>
-              <div>{positionCounts.DEF}/2</div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {showPlayers && (
         <div className="p-4 bg-gray-50">
