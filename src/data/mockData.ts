@@ -2,11 +2,11 @@ import { Player, FantasyTeam, League, ScoringSettings } from '../types/fantasy';
 
 export const defaultRosterRequirements = {
   QB: { min: 4, max: 4 },
-  RB: { min: 0, max: 32 },
-  WR: { min: 0, max: 32 },
-  TE: { min: 0, max: 32 },
-  K: { min: 0, max: 32 },
-  DEF: { min: 0, max: 32 },
+  RB: { min: 0, max: 7 },
+  WR: { min: 0, max: 10 },
+  TE: { min: 0, max: 4 },
+  K: { min: 0, max: 2 },
+  DEF: { min: 0, max: 2 },
 };
 
 export const defaultScoringSettings: ScoringSettings = {
