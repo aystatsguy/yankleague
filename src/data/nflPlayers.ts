@@ -1972,8 +1972,8 @@ export const nflPlayerDatabase: Player[] = [
   {
     id: 'te-29',
     name: 'Colby Parkinson',
-    position: 'TE',
-    team: 'LAR',
+    id: 'k-tb',
+    name: 'Tampa Bay',
     points: 4.9,
     projectedPoints: 5.4,
     stats: { receivingYards: 9, receivingTDs: 1, receptions: 2 },
@@ -1982,8 +1982,8 @@ export const nflPlayerDatabase: Player[] = [
   {
     id: 'te-30',
     name: 'Mike Gesicki',
-    position: 'TE',
-    team: 'CIN',
+    id: 'k-ari',
+    name: 'Arizona',
     points: 6.4,
     projectedPoints: 6.8,
     stats: { receivingYards: 24, receivingTDs: 1, receptions: 3 },
@@ -1992,8 +1992,8 @@ export const nflPlayerDatabase: Player[] = [
   {
     id: 'te-31',
     name: 'Austin Hooper',
-    position: 'TE',
-    team: 'NE',
+    id: 'k-lar',
+    name: 'Los Angeles Rams',
     points: 4.1,
     projectedPoints: 4.7,
     stats: { receivingYards: 1, receivingTDs: 1, receptions: 1 },
@@ -2002,8 +2002,8 @@ export const nflPlayerDatabase: Player[] = [
   {
     id: 'te-32',
     name: 'Daniel Bellinger',
-    position: 'TE',
-    team: 'NYG',
+    id: 'k-sf',
+    name: 'San Francisco',
     points: 3.8,
     projectedPoints: 4.3,
     stats: { receivingYards: -2, receivingTDs: 1, receptions: 1 },
@@ -2012,8 +2012,8 @@ export const nflPlayerDatabase: Player[] = [
 
   // Kickers
   {
-    id: 'k-1',
-    name: 'Justin Tucker',
+    id: 'k-sea',
+    name: 'Seattle',
     position: 'K',
     team: 'BAL',
     points: 9.0,
@@ -2032,8 +2032,8 @@ export const nflPlayerDatabase: Player[] = [
     isAvailable: true,
   },
   {
-    id: 'k-3',
-    name: 'Tyler Bass',
+    id: 'k-buf',
+    name: 'Buffalo',
     position: 'K',
     team: 'BUF',
     points: 8.1,
@@ -2072,8 +2072,8 @@ export const nflPlayerDatabase: Player[] = [
     isAvailable: true,
   },
   {
-    id: 'k-7',
-    name: 'Jason Sanders',
+    id: 'k-mia',
+    name: 'Miami',
     position: 'K',
     team: 'MIA',
     points: 7.6,
@@ -2262,8 +2262,8 @@ export const nflPlayerDatabase: Player[] = [
     isAvailable: true,
   },
   {
-    id: 'k-26',
-    name: 'Nick Folk',
+    id: 'k-ne',
+    name: 'New England',
     position: 'K',
     team: 'TEN',
     points: 5.7,
@@ -2282,8 +2282,8 @@ export const nflPlayerDatabase: Player[] = [
     isAvailable: true,
   },
   {
-    id: 'k-28',
-    name: 'Will Reichard',
+    id: 'k-nyj',
+    name: 'New York Jets',
     position: 'K',
     team: 'MIN',
     points: 7.7,
@@ -2332,8 +2332,8 @@ export const nflPlayerDatabase: Player[] = [
     isAvailable: true,
   },
 
-  // Defenses
-  {
+    id: 'k-pit',
+    name: 'Pittsburgh',
     id: 'def-1',
     name: 'San Francisco',
     position: 'DEF',
@@ -2434,7 +2434,7 @@ export const nflPlayerDatabase: Player[] = [
     isAvailable: true,
   },
   {
-    id: 'def-11',
+    id: 'k-cle',
     name: 'Cleveland',
     position: 'DEF',
     team: 'CLE',
@@ -2544,7 +2544,7 @@ export const nflPlayerDatabase: Player[] = [
     isAvailable: true,
   },
   {
-    id: 'def-22',
+    id: 'k-cin',
     name: 'Cincinnati',
     position: 'DEF',
     team: 'CIN',
@@ -2564,8 +2564,8 @@ export const nflPlayerDatabase: Player[] = [
     isAvailable: true,
   },
   {
-    id: 'def-24',
-    name: 'Chicago',
+    id: 'k-hou',
+    name: 'Houston',
     position: 'DEF',
     team: 'CHI',
     points: 6.0,
@@ -2574,8 +2574,8 @@ export const nflPlayerDatabase: Player[] = [
     isAvailable: true,
   },
   {
-    id: 'def-25',
-    name: 'Indianapolis',
+    id: 'k-phi',
+    name: 'Philadelphia',
     position: 'DEF',
     team: 'IND',
     points: 5.2,
@@ -2584,8 +2584,8 @@ export const nflPlayerDatabase: Player[] = [
     isAvailable: true,
   },
   {
-    id: 'def-26',
-    name: 'New Orleans',
+    id: 'k-was',
+    name: 'Washington',
     position: 'DEF',
     team: 'NO',
     points: 5.6,
@@ -2594,8 +2594,8 @@ export const nflPlayerDatabase: Player[] = [
     isAvailable: true,
   },
   {
-    id: 'def-27',
-    name: 'Tennessee',
+    id: 'k-chi',
+    name: 'Chicago',
     position: 'DEF',
     team: 'TEN',
     points: 4.9,
@@ -2604,8 +2604,8 @@ export const nflPlayerDatabase: Player[] = [
     isAvailable: true,
   },
   {
-    id: 'def-28',
-    name: 'Jacksonville',
+    id: 'k-det',
+    name: 'Detroit',
     position: 'DEF',
     team: 'JAX',
     points: 5.1,
@@ -2614,8 +2614,8 @@ export const nflPlayerDatabase: Player[] = [
     isAvailable: true,
   },
   {
-    id: 'def-29',
-    name: 'Las Vegas',
+    id: 'k-gb',
+    name: 'Green Bay',
     position: 'DEF',
     team: 'LV',
     points: 4.8,
@@ -2624,8 +2624,8 @@ export const nflPlayerDatabase: Player[] = [
     isAvailable: true,
   },
   {
-    id: 'def-30',
-    name: 'New York Giants',
+    id: 'k-min',
+    name: 'Minnesota',
     position: 'DEF',
     team: 'NYG',
     points: 4.6,
@@ -2634,8 +2634,8 @@ export const nflPlayerDatabase: Player[] = [
     isAvailable: true,
   },
   {
-    id: 'def-31',
-    name: 'New England',
+    id: 'k-atl',
+    name: 'Atlanta',
     position: 'DEF',
     team: 'NE',
     points: 4.3,
@@ -2644,7 +2644,7 @@ export const nflPlayerDatabase: Player[] = [
     isAvailable: true,
   },
   {
-    id: 'def-32',
+    id: 'k-car',
     name: 'Carolina',
     position: 'DEF',
     team: 'CAR',
@@ -2654,3 +2654,5 @@ export const nflPlayerDatabase: Player[] = [
     isAvailable: true,
   },
 ];
+    id: 'k-no',
+    name: 'New Orleans',

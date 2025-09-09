@@ -87,7 +87,7 @@ export const mockPlayers: Player[] = [
   },
   {
     id: '5',
-    name: 'Justin Tucker',
+    name: 'Baltimore',
     position: 'K',
     team: 'BAL',
     points: 9.0,
