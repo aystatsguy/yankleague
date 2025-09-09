@@ -103,14 +103,10 @@ export function generateAutodraftTeams(): FantasyTeam[] {
     const totalPoints = roster.reduce((sum, player) => sum + player.points, 0);
     
     // Generate realistic weekly points with some variance
-    const weeklyPoints = [
-      totalPoints * (0.9 + Math.random() * 0.2),
-      totalPoints * (0.85 + Math.random() * 0.3),
-      totalPoints * (0.95 + Math.random() * 0.1),
-    ];
+    const weeklyPoints = [totalPoints * (0.95 + Math.random() * 0.1)]; // Only Week 1 played
     
     const actualTotal = weeklyPoints.reduce((sum, points) => sum + points, 0);
-    const record = generateRecord(actualTotal, 200 * 3); // Assuming 200 is a good weekly score
+    const record = generateRecord(actualTotal, 200); // Only 1 week played
     
     const team: FantasyTeam = {
       id: `team-${i + 1}`,
