@@ -7,6 +7,9 @@ export const defaultRosterRequirements = {
   TE: { min: 0, max: 4 },
   K: { min: 0, max: 2 },
   DEF: { min: 0, max: 2 },
+  'RB/WR': { min: 0, max: 1 },
+  'WR/TE': { min: 0, max: 1 },
+  'K/DEF': { min: 0, max: 1 },
 };
 
 export const defaultScoringSettings: ScoringSettings = {

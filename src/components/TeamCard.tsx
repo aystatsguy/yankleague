@@ -49,7 +49,7 @@ export const TeamCard: React.FC<TeamCardProps> = ({
 
   // Get position counts for roster requirements display
   const getPositionCounts = () => {
-    const counts = { QB: 0, RB: 0, WR: 0, TE: 0, K: 0, DEF: 0 };
+    const counts = { QB: 0, RB: 0, WR: 0, TE: 0, K: 0, DEF: 0, 'RB/WR': 0, 'WR/TE': 0, 'K/DEF': 0 };
     team.players.forEach(player => {
       counts[player.position as keyof typeof counts]++;
     });
@@ -106,7 +106,7 @@ export const TeamCard: React.FC<TeamCardProps> = ({
         {/* Roster Requirements Display */}
         <div className="mt-4 p-3 bg-gray-50 rounded-md">
           <h5 className="text-sm font-medium text-gray-700 mb-2">Roster Requirements</h5>
-          <div className="grid grid-cols-6 gap-2 text-xs">
+          <div className="grid grid-cols-3 gap-2 text-xs mb-2">
             <div className={`text-center p-2 rounded ${positionCounts.QB === 4 ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
               <div className="font-medium">QB</div>
               <div>{positionCounts.QB}/4</div>
@@ -119,6 +119,37 @@ export const TeamCard: React.FC<TeamCardProps> = ({
               <div className="font-medium">WR</div>
               <div>{positionCounts.WR}/10</div>
             </div>
+          </div>
+          <div className="grid grid-cols-3 gap-2 text-xs mb-2">
+            <div className={`text-center p-2 rounded ${positionCounts.TE <= 4 ? 'bg-gray-100 text-gray-600' : 'bg-red-100 text-red-800'}`}>
+              <div className="font-medium">TE</div>
+              <div>{positionCounts.TE}/4</div>
+            </div>
+            <div className={`text-center p-2 rounded ${positionCounts.K <= 2 ? 'bg-gray-100 text-gray-600' : 'bg-red-100 text-red-800'}`}>
+              <div className="font-medium">K</div>
+              <div>{positionCounts.K}/2</div>
+            </div>
+            <div className={`text-center p-2 rounded ${positionCounts.DEF <= 2 ? 'bg-gray-100 text-gray-600' : 'bg-red-100 text-red-800'}`}>
+              <div className="font-medium">DEF</div>
+              <div>{positionCounts.DEF}/2</div>
+            </div>
+          </div>
+          <div className="grid grid-cols-3 gap-2 text-xs">
+            <div className={`text-center p-2 rounded ${positionCounts['RB/WR'] <= 1 ? 'bg-gray-100 text-gray-600' : 'bg-red-100 text-red-800'}`}>
+              <div className="font-medium">RB/WR</div>
+              <div>{positionCounts['RB/WR']}/1</div>
+            </div>
+            <div className={`text-center p-2 rounded ${positionCounts['WR/TE'] <= 1 ? 'bg-gray-100 text-gray-600' : 'bg-red-100 text-red-800'}`}>
+              <div className="font-medium">WR/TE</div>
+              <div>{positionCounts['WR/TE']}/1</div>
+            </div>
+            <div className={`text-center p-2 rounded ${positionCounts['K/DEF'] <= 1 ? 'bg-gray-100 text-gray-600' : 'bg-red-100 text-red-800'}`}>
+              <div className="font-medium">K/DEF</div>
+              <div>{positionCounts['K/DEF']}/1</div>
+            </div>
+          </div>
+        </div>
+      </div>
             <div className={`text-center p-2 rounded ${positionCounts.TE <= 4 ? 'bg-gray-100 text-gray-600' : 'bg-red-100 text-red-800'}`}>
               <div className="font-medium">TE</div>
               <div>{positionCounts.TE}/4</div>

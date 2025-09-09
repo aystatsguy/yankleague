@@ -40,6 +40,9 @@ export interface RosterRequirements {
   TE: { min: number; max: number };
   K: { min: number; max: number };
   DEF: { min: number; max: number };
+  'RB/WR': { min: number; max: number };
+  'WR/TE': { min: number; max: number };
+  'K/DEF': { min: number; max: number };
 }
 
 export interface League {
