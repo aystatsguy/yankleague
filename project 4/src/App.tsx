@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FolderRoot as Football, RefreshCw, Plus, BarChart3, Zap } from 'lucide-react';
+import { Football, RefreshCw, Plus, BarChart3, Zap } from 'lucide-react';
 import { useFantasyData } from './hooks/useFantasyData';
 import { LeagueStandings } from './components/LeagueStandings';
 import { TeamCard } from './components/TeamCard';
